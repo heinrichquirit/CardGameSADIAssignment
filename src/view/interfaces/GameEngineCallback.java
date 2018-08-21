@@ -12,7 +12,7 @@ import model.interfaces.PlayingCard;
  * 
  */
 public interface GameEngineCallback {
-	
+
 	/**
 	 * called for each card as the house is dealing to a Player, use this to update
 	 * your display for each card or log to console

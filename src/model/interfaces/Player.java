@@ -12,7 +12,7 @@ package model.interfaces;
  * 
  */
 public interface Player {
-	
+
 	/**
 	 * @return human readable player name
 	 */

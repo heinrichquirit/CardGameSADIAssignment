@@ -16,12 +16,12 @@ public class GameEngineImpl implements GameEngine {
 
 	private Collection<Player> players = new HashSet<Player>();
 	private GameEngineCallbackImpl engineCallback = new GameEngineCallbackImpl();
-	
+
 	public void dealPlayer(Player player, int delay) {
 		if (players.contains(player)) {
 			for (Player p : players) {
 				if (p.getPlayerId().equals(player.getPlayerId())) {
-					
+
 					// next card
 					engineCallback.nextCard(player, new PlayingCardImpl(Suit.CLUBS, Value.ACE, 1), this);
 					// bust card
@@ -31,7 +31,7 @@ public class GameEngineImpl implements GameEngine {
 	}
 
 	public void dealHouse(int delay) {
-		
+
 	}
 
 	public void addPlayer(Player player) {
@@ -51,10 +51,10 @@ public class GameEngineImpl implements GameEngine {
 		if (players.contains(player)) {
 			players.remove(player);
 			return true;
-		} 
+		}
 		return false;
 	}
-	
+
 	public void addGameEngineCallback(GameEngineCallback gameEngineCallback) {
 
 	}

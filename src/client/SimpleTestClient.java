@@ -27,11 +27,11 @@ import view.GameEngineCallbackImpl;
  * 
  */
 public class SimpleTestClient {
-	
+
 	private static Logger logger = Logger.getLogger("assignment1");
 
 	public static void main(String args[]) {
-		
+
 		final GameEngine gameEngine = new GameEngineImpl();
 
 		// call method in Validator.jar to test *structural* correctness

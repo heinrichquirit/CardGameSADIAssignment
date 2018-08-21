@@ -12,7 +12,7 @@ import view.interfaces.GameEngineCallback;
  * 
  */
 public interface GameEngine {
-	
+
 	public static final int BUST_LEVEL = 21;
 
 	/**

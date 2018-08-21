@@ -9,7 +9,7 @@ package model.interfaces;
  * 
  */
 public interface PlayingCard {
-	
+
 	public enum Suit {
 		HEARTS, SPADES, CLUBS, DIAMONDS
 	}

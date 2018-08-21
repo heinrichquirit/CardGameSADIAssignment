@@ -57,7 +57,8 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
 		// Player and Card details
 		String playerInfo = String.format("Card Dealt to %s", player.getPlayerName());
 		String seperator = " .. ";
-		String cardInfo = String.format("Suit: %s, Value: %s, Score: %d", card.getSuit(), card.getValue(), card.getScore());
+		String cardInfo = String.format("Suit: %s, Value: %s, Score: %d", card.getSuit(), card.getValue(),
+				card.getScore());
 		String bustInfo = " ... YOU BUSTED!";
 
 		System.out.println(playerInfo + seperator + cardInfo + bustInfo);
