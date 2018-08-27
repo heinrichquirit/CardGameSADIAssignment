@@ -1,6 +1,5 @@
 package view;
 
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,61 +21,69 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
 
 	private final Logger logger = Logger.getLogger(this.getClass().getName());
 
-	private String time = Calendar.getInstance().getTime().toString();
-	private String packageName = getClass().getCanonicalName();
-
 	public GameEngineCallbackImpl() {
 		// FINE shows dealing output, INFO only shows result
 		logger.setLevel(Level.FINE);
 	}
 
 	public void nextCard(Player player, PlayingCard card, GameEngine engine) {
-		// Logging details
-		System.out.println(String.format("%s %s nextCard", time, packageName));
-
-		// Player and Card details
-		String playerInfo = String.format("Card Dealt to %s", player.getPlayerName());
+		// player and Card details
+		String playerInfo = String.format("%s %s", "Card dealt to ", player.getPlayerName());
 		String seperator = " .. ";
-		String cardInfo = String.format("Suit: %s, Value: %s, Score: %d", card.getSuit(), card.getValue(),
-				card.getScore());
+		String cardInfo = String.format("%s %s, %s %s, %s %d", 
+										"Suit :", card.getSuit(), 
+										"Value : ", card.getValue(), 
+										"Score :", card.getScore());
 
-		// logger.log(Level.FINE, playerInfo + seperator + cardInfo);
-		System.out.println(playerInfo + seperator + cardInfo);
+		logger.log(Level.INFO, String.format("%s%s%s", playerInfo, seperator, cardInfo));
 	}
 
 	public void result(Player player, int result, GameEngine engine) {
-		// final results logged at Level.INFO
-		logger.log(Level.INFO, "Result data to log .. String.format() is good here!");
-		// TODO: complete this method to log results
+		logger.log(Level.INFO, String.format("%s,%s%d", player.getPlayerName(), " final result=", result));
 	}
 
 	public void bustCard(Player player, PlayingCard card, GameEngine engine) {
-		// Logging details
-		System.out.println(String.format("%s %s nextCard", time, packageName));
-
-		// Player and Card details
-		String playerInfo = String.format("Card Dealt to %s", player.getPlayerName());
+		// player and card details
+		String playerInfo = String.format("%s%s", "Card dealt to ", player.getPlayerName());
 		String seperator = " .. ";
-		String cardInfo = String.format("Suit: %s, Value: %s, Score: %d", card.getSuit(), card.getValue(),
-				card.getScore());
+		String cardInfo = String.format("%s%s,%s%s,%s%d", 
+									"Suit :", card.getSuit(), 
+									"Value :", card.getValue(),
+									"Score: ", card.getScore());
+		
 		String bustInfo = " ... YOU BUSTED!";
 
-		System.out.println(playerInfo + seperator + cardInfo + bustInfo);
+		logger.log(Level.FINE, String.format("%s%s%s%s", playerInfo, seperator, cardInfo, bustInfo));
 	}
 
 	public void nextHouseCard(PlayingCard card, GameEngine engine) {
-		// TODO Auto-generated method stub
+		// player and Card details
+		String houseInfo = String.format("%s", "Card dealt to house");
+		String seperator = " .. ";
+		String cardInfo = String.format("%s %s, %s %s, %s %d", 
+										"Suit :", card.getSuit(), 
+										"Value : ", card.getValue(), 
+										"Score :", card.getScore());
 
+		logger.log(Level.FINE, String.format("%s%s%s", houseInfo, seperator, cardInfo));
 	}
 
 	public void houseBustCard(PlayingCard card, GameEngine engine) {
-		// TODO Auto-generated method stub
+		// player and card details
+		String houseInfo = String.format("%s", "Card dealt to house");
+		String seperator = " .. ";
+		String cardInfo = String.format("%s%s,%s%s,%s%d", 
+									"Suit :", card.getSuit(), 
+									"Value :", card.getValue(),
+									"Score: ", card.getScore());
+				
+		String bustInfo = " ... HOUSE BUSTED!";
 
+		logger.log(Level.FINE, String.format("%s%s%s%s", houseInfo, seperator, cardInfo, bustInfo));
 	}
 
 	public void houseResult(int result, GameEngine engine) {
-		// TODO Auto-generated method stub
-
+		logger.log(Level.INFO, String.format("%s%d", "House, final result=", result));
 	}
 
 	// TODO implement the rest of the GameEngineCallback interface

@@ -35,5 +35,10 @@ public class PlayingCardImpl implements PlayingCard {
 	public boolean equals(PlayingCard card) {
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s %s, %s %s, %s %d", "Suit :", suit.toString(), "Value: ", value.toString(), "Score: ", score);
+	}
 
 }

@@ -61,5 +61,10 @@ public class SimplePlayer implements Player {
 	public int getResult() {
 		return result;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("Id: %s, Name: %s, Points: %d, Bet: %d, Result: %d", playerId, playerName, points, bet, result);
+	}
 
 }
